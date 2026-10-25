@@ -1,0 +1,4 @@
+tencent_key.txt
+cache_route.json
+__pycache__/
+*.pyc

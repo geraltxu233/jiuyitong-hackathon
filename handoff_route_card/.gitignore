@@ -1,0 +1,13 @@
+# 不要提交到仓库
+.env
+.env.local
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+__pycache__/
+*.pyc
+test/local_test.sqlite3*
+test/resp*.json
+test/card*.json
+test/h2.txt
+test/local_run.log

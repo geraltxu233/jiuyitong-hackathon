@@ -1,0 +1,46 @@
+{
+  "version": "2026-10-23",
+  "purpose": "推荐医院映射：归一化口语科室名（display_name，供墨水屏/语音与老人沟通）→ 推荐擅长医院。科室名称归一化规则见 normalize_rules。",
+  "normalize_rules": {
+    "心内科": ["心内科", "心血管内科", "心脏科"],
+    "肠胃科": ["消化内科", "消化科", "胃肠科"],
+    "骨科": ["骨科", "骨外科"],
+    "肿瘤科": ["肿瘤科", "肿瘤内科", "肿瘤外科"]
+  },
+  "recommendations": [
+    {
+      "display_name": "心内科",
+      "recommend_hospital": "复旦大学附属中山医院",
+      "official_department": "心内科",
+      "rank": "全国第2",
+      "reason": "胸闷、心慌、胸痛、心悸、高血压等首选"
+    },
+    {
+      "display_name": "肠胃科",
+      "recommend_hospital": "上海交通大学医学院附属仁济医院",
+      "official_department": "消化内科",
+      "rank": "全国第1",
+      "reason": "胃痛、反酸、腹泻、便血、消化不良等首选"
+    },
+    {
+      "display_name": "骨科",
+      "recommend_hospital": "上海市第六人民医院",
+      "official_department": "骨科",
+      "rank": "全国第2/华东第1",
+      "reason": "腰痛、关节痛、骨折、颈椎痛等首选"
+    },
+    {
+      "display_name": "肿瘤科",
+      "recommend_hospital": "复旦大学附属肿瘤医院",
+      "official_department": "肿瘤科",
+      "rank": "全国第1",
+      "reason": "肿块、持续消瘦、咳血、大便习惯改变等首选"
+    }
+  ],
+  "symptom_to_display_name": [
+    { "symptoms": ["胸闷", "心慌", "胸痛", "心悸", "气短", "心律不齐", "高血压"], "display_name": "心内科" },
+    { "symptoms": ["胃痛", "胃胀", "反酸", "烧心", "腹痛", "腹泻", "便秘", "便血", "消化不良", "恶心呕吐"], "display_name": "肠胃科" },
+    { "symptoms": ["腰痛", "腿痛", "关节痛", "骨折", "扭伤", "颈椎痛", "肩周炎", "膝盖痛"], "display_name": "骨科" },
+    { "symptoms": ["肿块", "持续消瘦", "不明原因疼痛", "长期咳嗽咳血", "大便习惯改变", "皮肤异常痣", "吞咽困难", "无痛性肿块"], "display_name": "肿瘤科" }
+  ]
+}

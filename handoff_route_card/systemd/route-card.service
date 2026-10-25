@@ -1,0 +1,32 @@
+[Unit]
+Description=CareCard route card service (board pull + query_transit tool)
+Documentation=file:///opt/route-card/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/route-card/app
+EnvironmentFile=/opt/route-card/.env
+
+# 只监听回环，公网入口交给 nginx；这样 8010 不会被外面直接扫到。
+ExecStart=/usr/bin/python3 /opt/route-card/app/route_card_service.py --host 127.0.0.1 --port 8010 --db /opt/route-card/data/route_card.sqlite3
+
+Restart=always
+RestartSec=3
+TimeoutStopSec=10
+
+# 收一点权限：它只需要读代码、写自己的 sqlite 和日志。
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/route-card/data
+
+StandardOutput=append:/var/log/route-card.log
+StandardError=append:/var/log/route-card.log
+
+[Install]
+WantedBy=multi-user.target
